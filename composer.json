@@ -1,0 +1,31 @@
+{
+  "name": "acconf.git/ai-rss-fetcher",
+  "type": "grav-plugin",
+  "description": "Fetch AI News From Multiple RSS resources.",
+  "version": "1.0.0",
+  "keywords": ["plugin"],
+  "homepage": "https://github.com/acconf.git/grav-plugin-ai-rss-fetcher",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "acconf.com",
+      "email": "info@acconf.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "debril/feed-io": ">=4.9 <5.0",
+    "symfony/console": ">=4.4 <5.0",
+    "symfony/dom-crawler": ">=2.7 <5.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Grav\\Plugin\\AiRssFetcher\\": "classes/",
+      "Grav\\Plugin\\Console\\": "cli/"
+    },
+    "classmap":  ["ai-rss-fetcher.php"]
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}

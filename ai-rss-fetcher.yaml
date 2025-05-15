@@ -1,0 +1,17 @@
+enabled: true
+feed_urls:
+  - name: 'OpenAI'
+    url: 'https://openai.com/news/rss.xml'
+    enabled: true
+  - name: 'Huggingface'
+    url: 'https://huggingface.co/blog/feed.xml'
+    enabled: true
+  - name: 'Artificial'
+    url: 'https://www.artificial-intelligence.blog/ai-news/category/technology?format=rss'
+    enabled: true
+cache_time: 3600  # Cache time in seconds (1 hour)
+excerpt_length: 200  # Number of characters for excerpt
+output_path: 'modular/_rss'  # Path relative to user/pages where content will be stored
+max_items_per_feed: 10  # Maximum number of items to fetch per feed
+fetch_images: true  # Whether to fetch and store featured images
+date_format: 'Y-m-d H:i'  # Date format for display

@@ -1,0 +1,25 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+    <div class="ai-rss-fetcher-container">
+        {{ page.content|raw }}
+        
+        <div class="ai-rss-fetcher-grid">
+            {% set collection = ai_rss_fetcher_items() %}
+            
+            {% if collection|length > 0 %}
+                <div class="row">
+                    {% for item in collection %}
+                        <div class="col-md-4 mb-4">
+                            {% include 'partials/rss_item.html.twig' with {'item': item} %}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="ai-rss-fetcher-empty">
+                    <p>No RSS items found. Please run the <code>bin/plugin rss:fetch</code> command to fetch RSS feeds.</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,91 @@
+name: Ai Rss Fetcher
+slug: ai-rss-fetcher
+type: plugin
+version: 0.1.0
+description: Fetch AI News From Multiple RSS resources.
+icon: plug
+author:
+  name: acconf.com
+  email: info@acconf.com
+homepage: https://github.com/acconf.git/grav-plugin-ai-rss-fetcher
+demo: https//acconf.com
+keywords: grav, plugin, rss, ai, news, eed
+bugs: https://github.com/acconf.git/grav-plugin-ai-rss-fetcher/issues
+docs: https://github.com/acconf.git/grav-plugin-ai-rss-fetcher/blob/develop/README.md
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.6.0' }
+
+form:
+  validation: loose
+  fields:
+    enabled:
+      type: toggle
+      label: PLUGIN_ADMIN.PLUGIN_STATUS
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    feed_urls:
+      type: list
+      label: RSS Feed URLs
+      fields:
+        .name:
+          type: text
+          label: Feed Name
+          placeholder: "My RSS Feed"
+        .url:
+          type: text
+          label: Feed URL
+          placeholder: "https://openai.com/news/rss.xml"
+        .enabled:
+          type: toggle
+          label: Feed Status
+          highlight: 1
+          default: 1
+          options:
+            1: Enabled
+            0: Disabled
+          validate:
+            type: bool
+    cache_time:
+      type: number
+      label: Cache Time (seconds)
+      default: 3600
+      validate:
+        min: 60
+        
+    excerpt_length:
+      type: number
+      label: Excerpt Length
+      default: 200
+      
+    output_path:
+      type: text
+      label: Folder to store Markdown files
+      default: 'modular/_rss'
+      
+    max_items_per_feed:
+      type: number
+      label: Maximum Items Per Feed
+      default: 10
+      
+    fetch_images:
+      type: toggle
+      label: Fetch Images
+      highlight: 1
+      default: 1
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+        
+    date_format:
+      type: text
+      label: Date Format
+      default: 'Y-m-d H:i'

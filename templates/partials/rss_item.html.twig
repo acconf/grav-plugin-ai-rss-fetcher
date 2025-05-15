@@ -1,0 +1,27 @@
+{% set image = item.header.image %}
+{% set feed = item.header.feed %}
+{% set link = item.header.link %}
+{% set author = item.header.author %}
+{% set date = item.header.date|date(config.plugins['ai-rss-fetcher'].date_format) %}
+
+<div class="ai-rss-fetcher-card card h-100">
+    {% if image %}
+        <img src="{{ image }}" class="card-img-top" alt="{{ item.title }}">
+    {% endif %}
+    
+    <div class="card-body">
+        <h5 class="card-title">{{ item.title }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ feed }}</h6>
+        <p class="card-text">{{ item.header.excerpt }}</p>
+    </div>
+    
+    <div class="card-footer">
+        <div class="d-flex justify-content-between align-items-center">
+            <small class="text-muted">
+                {% if author %}By {{ author }} • {% endif %}
+                {{ date }}
+            </small>
+            <a href="{{ link }}" class="btn btn-primary btn-sm" target="_blank">Read More</a>
+        </div>
+    </div>
+</div>
